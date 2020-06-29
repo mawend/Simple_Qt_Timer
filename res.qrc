@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/appicon.ico</file>
+        <file>res/beep_beep.mp3</file>
+        <file>res/trayIcon.png</file>
+    </qresource>
+</RCC>
