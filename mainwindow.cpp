@@ -29,6 +29,10 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete timer;
+    delete zeroTime;
+    delete player;
+    delete trayIcon;
 }
 
 void MainWindow::updateTimer()
