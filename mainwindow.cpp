@@ -81,6 +81,7 @@ void MainWindow::stop()
     ui->btnStart->setEnabled(true);
     ui->btnPause->setEnabled(false);
     ui->statusBar->showMessage("Stopped");
+    ui->btnStart->setFocus();
 }
 
 void MainWindow::pause()
