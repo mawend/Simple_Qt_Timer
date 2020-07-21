@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
+#include <QKeyEvent>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,12 +18,14 @@ MainWindow::MainWindow(QWidget *parent)
     trayIcon = new QSystemTrayIcon(this);
     trayIcon->setIcon(QIcon("qrc:/res/trayIcon.png"));
     trayIcon->show();
+    ui->timeEdit->setFocus();
 
     connect(ui->btnStart, SIGNAL(clicked()), this, SLOT(start()));
     connect(ui->btnStop, SIGNAL(clicked()), this, SLOT(stop()));
     connect(ui->btnPause, SIGNAL(clicked()), this, SLOT(pause()));
     connect(ui->sldVolume, SIGNAL(valueChanged(int)), this, SLOT(setPlayerVolume(int)));
     connect(timer, SIGNAL(timeout()), this, SLOT(updateTimer()));
+
 
 }
 
