@@ -24,9 +24,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->btnStop, SIGNAL(clicked()), this, SLOT(stop()));
     connect(ui->btnPause, SIGNAL(clicked()), this, SLOT(pause()));
     connect(ui->sldVolume, SIGNAL(valueChanged(int)), this, SLOT(setPlayerVolume(int)));
+    connect(ui->sldVolume, SIGNAL(sliderReleased()), player, SLOT(play()));
     connect(timer, SIGNAL(timeout()), this, SLOT(updateTimer()));
-
-
 }
 
 MainWindow::~MainWindow()
