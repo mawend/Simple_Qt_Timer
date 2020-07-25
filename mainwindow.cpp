@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->sldVolume, SIGNAL(valueChanged(int)), this, SLOT(setPlayerVolume(int)));
     connect(ui->sldVolume, SIGNAL(sliderReleased()), player, SLOT(play()));
     connect(timer, SIGNAL(timeout()), this, SLOT(updateTimer()));
+    connect(ui->cboxAlwaysOnTop, SIGNAL(stateChanged(int)), this, SLOT(setAlwaysOnTop(int)));
 }
 
 MainWindow::~MainWindow()
@@ -110,4 +111,10 @@ void MainWindow::setPlayerVolume(int volume)
 
     qreal linearVolume = QAudio::convertVolume(volume / qreal(100.0), QAudio::LogarithmicVolumeScale, QAudio::LinearVolumeScale);
     player->setVolume(qRound(linearVolume * 100));
+}
+
+void MainWindow::setAlwaysOnTop(int value)
+{
+    this->setWindowFlag(Qt::WindowStaysOnTopHint, value);
+    this->show();
 }

@@ -38,5 +38,6 @@ private slots:
     void pause();
     void restart();
     void setPlayerVolume(int volume);
+    void setAlwaysOnTop(int value);
 };
 #endif // MAINWINDOW_H
